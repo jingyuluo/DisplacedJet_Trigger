@@ -115,7 +115,7 @@ process.out = cms.OutputModule("PoolOutputModule",
 
 process.IsoMufilter = cms.EDFilter("HLTHighLevel", 
     TriggerResultsTag = cms.InputTag("TriggerResults", "", "HLT"),
-    HLTPaths = cms.vstring("HLT_HT425_v*"),
+    HLTPaths = cms.vstring("HLT_IsoMu27_v*"),
     eventSetupPathsKey = cms.string(""),
     andOr = cms.bool(True),
     throw = cms.bool(False)

@@ -357,7 +357,7 @@ TriggerAnlPF_miniAOD::analyze(const edm::Event& iEvent, const edm::EventSetup& i
    }
 
    std::auto_ptr<JetTrks> jettracks_assoc (new JetTrks(reco::JetRefBaseProd(jet_coll)));
-   jettracks(&*jettracks_assoc,  jet_coll, alltracks, 0.5);
+   jettracks(&*jettracks_assoc,  jet_coll, alltracks, 0.4);
 
 
 
@@ -366,11 +366,11 @@ TriggerAnlPF_miniAOD::analyze(const edm::Event& iEvent, const edm::EventSetup& i
    for (auto const& ijet: *jet_coll){
        double corrfac = jetCorr->correction(ijet);
        calojet_pt.push_back(ijet.pt()*corrfac);
-       calojet_pt.push_back(ijet.pt());
+       //calojet_pt.push_back(ijet.pt());
        calojet_eta.push_back(ijet.eta());
        calojet_phi.push_back(ijet.phi());
        calojet_energy.push_back(ijet.energy()*corrfac);
-       calojet_energy.push_back(ijet.energy());
+       //calojet_energy.push_back(ijet.energy());
 
        if (ijet.pt()>40 and fabs(ijet.eta())<2.5){
            CaloHT+=ijet.pt()*corrfac;
